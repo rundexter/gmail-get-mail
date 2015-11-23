@@ -4,23 +4,53 @@
 {
     //Required. Inputs the module expects.
     "inputs": [
-        //e.g.
-        /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "id",
+            "title":"The ID of the message to retrieve"
+        },
+        {
+            "id": "userId",
+            "title":"The user's email address"
         }
-        */
     ],
     //Required. Outputs the module emits.
     "outputs": [
-      //e.g.
-      /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "id",
+            "title":"id"
+        },
+        {
+            "id": "threadId",
+            "title":"threadId"
+        },
+        {
+            "id": "labelIds",
+            "title":"labelIds"
+        },
+        {
+            "id": "snippet",
+            "title":"snippet"
+        },
+        {
+            "id": "historyId",
+            "title":"historyId"
+        },
+        {
+            "id": "internalDate",
+            "title":"internalDate"
+        },
+        {
+            "id": "payload",
+            "title":"payload"
+        },
+        {
+            "id": "body",
+            "title":"body"
+        },
+        {
+            "id": "parts",
+            "title":"parts"
         }
-      */
     ],
-    "title": "Google Get Mail" /* Required.A display name for the module */
+    "title": "Google Get Mail"
 }
