@@ -52,6 +52,14 @@
             "title":"parts"
         }
     ],
+    "providers": [{
+        "name": "google",
+        "scopes": [
+            "https://mail.google.com/",
+            "https://www.googleapis.com/auth/gmail.modify",
+            "https://www.googleapis.com/auth/gmail.readonly"
+        ]
+    }],
     "icon": "google-plus",
     "title": "Google Get Mail"
 }
