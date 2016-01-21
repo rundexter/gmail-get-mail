@@ -2,7 +2,6 @@
  * Metadata describing the module operation
  */
 {
-    //Required. Inputs the module expects.
     "inputs": [
         {
             "id": "id",
@@ -13,7 +12,6 @@
             "title":"The user's email address"
         }
     ],
-    //Required. Outputs the module emits.
     "outputs": [
         {
             "id": "id",
