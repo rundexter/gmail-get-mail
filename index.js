@@ -41,10 +41,26 @@ module.exports = {
             access_token: _.get(credentials, 'access_token')
         });
         google.options({ auth: oauth2Client });
+
+        var ids  = step.input( 'id' );
+        var user = step.input( 'userId' ).first();
+        var results = [ ];
+
+        ids.each( function( msg_id ) {
+            service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
+                if ( err ) return this.fail( err );
+                results.append( util.pickOutputs( message, pickOutputs ) );
+            } )
+        } );
+
+        return this.complete( results );
+/*
         service.users.messages.get(inputs, function (err, message) {
 
             err? this.fail(err) : this.complete(util.pickOutputs(message, pickOutputs));
         }.bind(this));
+*/
+
 
     }
 };
