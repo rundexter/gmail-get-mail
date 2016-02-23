@@ -29,8 +29,7 @@ var fetch_msg = function( app, service, user, msg_id ) {
     } );
 
     return deferred.promise;
-}
-
+};
 
 module.exports = {
     /**
