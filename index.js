@@ -62,8 +62,9 @@ module.exports = {
         var results = [ ];
 
         this.log( 'starting loop' );
+        var app = this;
         ids.each( function( msg_id ) {
-            fetches.push( fetch_msg( this, service, user, msg_id ) );
+            fetches.push( fetch_msg( app, service, user, msg_id ) );
         } );
 
         Q.all( fetches )
