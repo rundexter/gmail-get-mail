@@ -16,7 +16,7 @@
         {
             "id": "messages",
             "title":"List of messages"
-        },
+        }
     ],
     "providers": [{
         "name": "google",
