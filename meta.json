@@ -5,7 +5,7 @@
     "inputs": [
         {
             "id": "id",
-            "title":"The ID of the message to retrieve"
+            "title":"The IDs of the message to retrieve"
         },
         {
             "id": "userId",
@@ -14,41 +14,9 @@
     ],
     "outputs": [
         {
-            "id": "id",
-            "title":"id"
+            "id": "messages",
+            "title":"List of messages"
         },
-        {
-            "id": "threadId",
-            "title":"threadId"
-        },
-        {
-            "id": "labelIds",
-            "title":"labelIds"
-        },
-        {
-            "id": "snippet",
-            "title":"snippet"
-        },
-        {
-            "id": "historyId",
-            "title":"historyId"
-        },
-        {
-            "id": "internalDate",
-            "title":"internalDate"
-        },
-        {
-            "id": "payload",
-            "title":"payload"
-        },
-        {
-            "id": "body",
-            "title":"body"
-        },
-        {
-            "id": "parts",
-            "title":"parts"
-        }
     ],
     "providers": [{
         "name": "google",
