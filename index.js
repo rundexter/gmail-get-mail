@@ -46,14 +46,15 @@ module.exports = {
         var user = step.input( 'userId' ).first();
         var results = [ ];
         var app = this;
-        this.log( 'starting loop' );
+        app.log( 'starting loop' );
         ids.each( function( msg_id ) {
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
-                if ( err ) return app.fail( err );
+                if ( err ) { return app.fail( err ); }
                 results.push( util.pickOutputs( message, pickOutputs ) );
+                app.log( 'pushed message', message );
             } )
         } );
-        this.log( 'ending loop', { 'results': results } );
+        app.log( 'ending loop', { 'results': results } );
         return this.complete( results );
 /*
         service.users.messages.get(inputs, function (err, message) {
