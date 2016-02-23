@@ -69,6 +69,6 @@ module.exports = {
         var results = [ ];
         Q.all( fetches )
           .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } )
-          .then( return this.complete( results ) );
+          .then( function() { return this.complete( results ) } );
     },
 };
