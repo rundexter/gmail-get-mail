@@ -1,6 +1,6 @@
 {
   "name": "google-get-mail",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Get messages",
   "main": "index.js",
   "author": "Run Dexter, Inc",
