@@ -45,11 +45,8 @@ module.exports = {
         var ids  = step.input( 'id' );
         var user = step.input( 'userId' ).first();
         var results = [ ];
-        var app = this;
         ids.each( function( msg_id ) {
-            app.log( 'fetching msg ' + msg_id );
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
-                app.log( 'message cb for ' + msg_id );
                 if ( err ) return this.fail( err );
                 results.push( util.pickOutputs( message, pickOutputs ) );
             } )
