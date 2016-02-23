@@ -51,7 +51,7 @@ module.exports = {
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
                 app.log( 'message cb for ' + msg_id );
                 if ( err ) return this.fail( err );
-                results.append( util.pickOutputs( message, pickOutputs ) );
+                results.push( util.pickOutputs( message, pickOutputs ) );
             } )
         } );
 
