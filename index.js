@@ -45,10 +45,11 @@ module.exports = {
         var ids  = step.input( 'id' );
         var user = step.input( 'userId' ).first();
         var results = [ ];
+        var app = this;
         this.log( 'starting loop' );
         ids.each( function( msg_id ) {
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
-                if ( err ) return this.fail( err );
+                if ( err ) return app.fail( err );
                 results.push( util.pickOutputs( message, pickOutputs ) );
             } )
         } );
