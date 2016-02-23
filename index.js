@@ -20,7 +20,8 @@ var pickInputs = {
         'parts': 'parts'
     };
 
-var fetch_msg = function( service, user, msg_id ) {
+var fetch_msg = function( app, service, user, msg_id ) {
+    app.log( 'constructing promise for msg id ' + msg_id );
     var deferred = Q.defer();
     service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
         if ( err ) deferred.reject( err );
@@ -62,7 +63,7 @@ module.exports = {
 
         this.log( 'starting loop' );
         ids.each( function( msg_id ) {
-            fetches.push( fetch_msg( service, user, msg_id ) );
+            fetches.push( fetch_msg( this, service, user, msg_id ) );
         } );
 
         Q.all( fetches )
