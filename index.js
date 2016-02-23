@@ -39,7 +39,7 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        this.log( "blah blah blah" );
+        this.log( "blah blah blah " );
         var OAuth2 = google.auth.OAuth2,
             oauth2Client = new OAuth2(),
             credentials = dexter.provider('google').credentials();
