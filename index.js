@@ -48,7 +48,6 @@ module.exports = {
         var app = this;
         app.log( 'starting loop' );
         ids.each( function( msg_id ) {
-            app.log( 'loop iteration', { 'id': msg_id  } );
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
                 if ( err ) { return app.fail( err ); }
                 results.push( util.pickOutputs( message, pickOutputs ) );
