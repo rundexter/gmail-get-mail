@@ -1,4 +1,5 @@
 var _ = require('lodash'),
+    Q = require('q'),
     util = require('./util.js'),
     google = require('googleapis'),
     service = google.gmail('v1');
@@ -18,6 +19,17 @@ var pickInputs = {
         'body': 'body',
         'parts': 'parts'
     };
+
+var fetch_msg = function( service, user, msg_id ) {
+    var deferred = Q.defer();
+    service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
+        if ( err ) deferred.reject( err );
+        else       deferred.resolve( message );
+    } );
+
+    return deferred.promise;
+}
+
 
 module.exports = {
     /**
@@ -45,24 +57,14 @@ module.exports = {
         var ids  = step.input( 'id' );
         var user = step.input( 'userId' ).first();
         var results = [ ];
-        var app = this;
-        app.log( 'starting loop' );
+
+        this.log( 'starting loop' );
         ids.each( function( msg_id ) {
-            service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
-                if ( err ) { return app.fail( err ); }
-                results.push( util.pickOutputs( message, pickOutputs ) );
-                app.log( 'pushed message', message );
-            } )
+            fetch_msg( service, user, msg_id )
+            .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } );
         } );
-        app.log( 'ending loop', { 'results': results } );
+
+        this.log( 'ending loop', { 'results': results } );
         return this.complete( results );
-/*
-        service.users.messages.get(inputs, function (err, message) {
-
-            err? this.fail(err) : this.complete(util.pickOutputs(message, pickOutputs));
-        }.bind(this));
-*/
-
-
-    }
+    },
 };
