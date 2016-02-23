@@ -59,7 +59,6 @@ module.exports = {
         var ids  = step.input( 'id' );
         var user = step.input( 'userId' ).first();
         var fetches = [ ];
-        var results = [ ];
 
         this.log( 'starting loop' );
         var app = this;
@@ -67,10 +66,9 @@ module.exports = {
             fetches.push( fetch_msg( app, service, user, msg_id ) );
         } );
 
+        var results = [ ];
         Q.all( fetches )
-          .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } );
-
-        this.log( 'ending loop', { 'results': results } );
-        return this.complete( results );
+          .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } )
+          .then( return this.complete( results ) );
     },
 };
