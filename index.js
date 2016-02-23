@@ -47,7 +47,9 @@ module.exports = {
         var results = [ ];
 
         ids.each( function( msg_id ) {
+            this.log( 'fetching msg ' + msg_id );
             service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
+                this.log( 'message cb for ' + msg_id );
                 if ( err ) return this.fail( err );
                 results.append( util.pickOutputs( message, pickOutputs ) );
             } )
