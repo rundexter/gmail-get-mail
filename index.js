@@ -23,7 +23,7 @@ var pickInputs = {
 var fetch_msg = function( app, service, user, msg_id ) {
     app.log( 'constructing promise for msg id ' + msg_id );
     var deferred = Q.defer();
-    service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
+    service.users.messages.get( { 'id': msg_id, 'userId': user, 'labelIds', app.input( 'labelIds' ) }, function( err, message ) {
         if ( err ) { return deferred.reject( err );      }
         else       { return deferred.resolve( message ); }
     } );
