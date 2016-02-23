@@ -57,13 +57,16 @@ module.exports = {
 
         var ids  = step.input( 'id' );
         var user = step.input( 'userId' ).first();
+        var fetches = [ ];
         var results = [ ];
 
         this.log( 'starting loop' );
         ids.each( function( msg_id ) {
-            fetch_msg( service, user, msg_id )
-            .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } );
+            fetches.push( fetch_msg( service, user, msg_id ) );
         } );
+
+        Q.all( fetches )
+          .then( function( msg ) { results.push( msg ) }, function( err ) { this.fail( err ) } );
 
         this.log( 'ending loop', { 'results': results } );
         return this.complete( results );
