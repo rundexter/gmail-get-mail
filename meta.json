@@ -14,8 +14,40 @@
     ],
     "outputs": [
         {
-            "id": "messages",
-            "title":"List of messages"
+            "id": "id",
+            "title":"id"
+        },
+        {
+            "id": "threadId",
+            "title":"threadId"
+        },
+        {
+            "id": "labelIds",
+            "title":"labelIds"
+        },
+        {
+            "id": "snippet",
+            "title":"snippet"
+        },
+        {
+            "id": "historyId",
+            "title":"historyId"
+        },
+        {
+            "id": "internalDate",
+            "title":"internalDate"
+        },
+        {
+            "id": "payload",
+            "title":"payload"
+        },
+        {
+            "id": "body",
+            "title":"body"
+        },
+        {
+            "id": "parts",
+            "title":"parts"
         }
     ],
     "providers": [{

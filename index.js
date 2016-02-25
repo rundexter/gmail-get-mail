@@ -66,7 +66,7 @@ module.exports = {
         } );
 
         Q.all( fetches )
-          .then( function( results ) { app.complete( { 'messages': results } ) } )
+          .then( function( results ) { app.complete( results ) } )
           .fail( function( err ) { app.fail( err ) } );
     },
 };
