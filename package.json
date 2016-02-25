@@ -1,5 +1,5 @@
 {
-  "name": "google-get-mail",
+  "name": "gmail-get-mail",
   "version": "0.0.2",
   "description": "Get messages",
   "main": "index.js",
