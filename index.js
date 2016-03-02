@@ -1,23 +1,24 @@
-var _ = require('lodash'),
-    Q = require('q'),
-    util = require('./util.js'),
-    google = require('googleapis'),
-    service = google.gmail('v1');
+var _        = require('lodash')
+  ,  Q       = require('q')
+  ,  util    = require('./util.js')
+  ,  google  = require('googleapis')
+  ,  service = google.gmail('v1')
+;
 
 var pickInputs = {
-        'id': { key: 'id', validate: { req: true } },
-        'userId': { key: 'userId', validate: { req: true } }
+        'id'     : { key : 'id',     validate : { req : true } },
+        'userId' : { key : 'userId', validate : { req : true } }
     },
     pickOutputs = {
-        'id': 'id',
-        'threadId': 'threadId',
-        'labelIds': 'labelIds',
-        'snippet': 'snippet',
-        'historyId': 'historyId',
-        'internalDate': 'internalDate',
-        'payload': 'payload',
-        'body': 'body',
-        'parts': 'parts'
+        'id'           : 'id',
+        'threadId'     : 'threadId',
+        'labelIds'     : 'labelIds',
+        'snippet'      : 'snippet',
+        'historyId'    : 'historyId',
+        'internalDate' : 'internalDate',
+        'payload'      : 'payload',
+        'body'         : 'body',
+        'parts'        : 'parts'
     };
 
 var fetch_msg = function( app, service, user, msg_id ) {
@@ -63,7 +64,7 @@ module.exports = {
         } );
 
         Q.all( fetches )
-          .then( function( results ) { app.complete( results ) } )
-          .fail( function( err ) { app.fail( err ) } );
-    },
+          .then( function( results ) { app.complete( results ); } )
+          .fail( function( err ) { app.fail( err ); } );
+    }
 };

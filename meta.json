@@ -2,54 +2,39 @@
  * Metadata describing the module operation
  */
 {
-    "inputs": [
-        {
-            "id": "id",
-            "title":"The IDs of the message to retrieve"
-        },
-        {
-            "id": "userId",
-            "title":"The user's email address"
-        }
-    ],
-    "outputs": [
-        {
-            "id": "id",
-            "title":"id"
-        },
-        {
-            "id": "threadId",
-            "title":"threadId"
-        },
-        {
-            "id": "labelIds",
-            "title":"labelIds"
-        },
-        {
-            "id": "snippet",
-            "title":"snippet"
-        },
-        {
-            "id": "historyId",
-            "title":"historyId"
-        },
-        {
-            "id": "internalDate",
-            "title":"internalDate"
-        },
-        {
-            "id": "payload",
-            "title":"payload"
-        },
-        {
-            "id": "body",
-            "title":"body"
-        },
-        {
-            "id": "parts",
-            "title":"parts"
-        }
-    ],
+    "icon": "google",
+    "title": "Gmail Get Mail",
+    "inputs": [{
+        "id"          : "id",
+        "title"       : "Message ID",
+        "description" : "The IDs of the message to retrieve"
+    }, {
+        "id": "userId",
+        "title":"User Email",
+        "description":"The user's email address"
+    }],
+    "outputs": [{
+        "id": "id",
+        "title":"Id"
+    }, {
+        "id": "threadId",
+        "title":"Thread Id"
+    }, {
+        "id": "labelIds",
+        "title":"Label Ids"
+    }, {
+        "id": "internalDate",
+        "title":"Internal Date"
+    }, {
+        "id": "payload",
+        "title":"Payload"
+    }, {
+        "id": "body",
+        "title":"Body"
+    }, {
+        "id": "parts",
+        "title":"Parts"
+    }],
     "providers": [{
         "name": "google",
         "scopes": [
@@ -57,7 +42,5 @@
             "https://www.googleapis.com/auth/gmail.modify",
             "https://www.googleapis.com/auth/gmail.readonly"
         ]
-    }],
-    "icon": "google-plus",
-    "title": "Gmail get mail"
+    }]
 }
