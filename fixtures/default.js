@@ -1,4 +1,6 @@
 var _ = require('lodash');
+var env = require('./env');
+
 
 module.exports = _.merge({
     /*
@@ -61,9 +63,9 @@ module.exports = _.merge({
              */
             input: {
                 //Replace VAR1 with the name of an expected input, and add more inputs as needed.
-                id: '1511c2f133d7b4cc',
-                userId: 'al.zaretskii@gmail.com'
+                id: [ '1545db0dedd63346', '154582f882e39419', '154582d5b3941e43' ],
+                userId: 'me'
             }
         }
     }
-} );
+}, env );

@@ -25,7 +25,10 @@ var fetch_msg = function( app, service, user, msg_id ) {
     var deferred = Q.defer();
     service.users.messages.get( { 'id': msg_id, 'userId': user }, function( err, message ) {
         if ( err ) { return deferred.reject( err );      }
-        else       { return deferred.resolve( message ); }
+        else       {
+          delete message['payload']['parts'];
+          return deferred.resolve( message );
+        }
     } );
 
     return deferred.promise;
